@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+.game-page {
+  font-family: 'Poppins', sans-serif;
+  background: #121212;
+  color: #ddd;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: #1f1f1f;
+  color: #ffcc00;
+  padding: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0px 4px 8px rgba(255, 204, 0, 0.5);
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  background: #222;
+  padding: 10px 0;
+}
+
+.nav a {
+  color: #ffcc00;
+  text-decoration: none;
+  padding: 12px 20px;
+  margin: 0 10px;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.nav a:hover {
+  color: #ff9900;
+}
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #1c1c1c;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(255, 204, 0, 0.3);
+  flex: 1;
+}
+
+h2 {
+  color: #ffcc00;
+  font-size: 26px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ffcc00;
+  padding-bottom: 5px;
+}
+
+.number-display {
+  font-size: 36px;
+  margin: 20px auto;
+  padding: 12px 24px;
+  background: #1c1c1c;
+  display: inline-block;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(255, 204, 0, 0.5);
+}
+
+input {
+  font-size: 18px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: #2a2a2a;
+  color: #ddd;
+  margin-top: 15px;
+}
+
+button {
+  font-size: 18px;
+  padding: 12px 25px;
+  margin: 15px 10px 0;
+  background: linear-gradient(45deg, #ffcc00, #ff9900);
+  color: #121212;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.7);
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+button:hover {
+  background: linear-gradient(45deg, #ff9900, #ff6600);
+  box-shadow: 0 0 20px rgba(255, 153, 0, 1);
+  transform: translateY(-3px);
+}
+
+button:active {
+  transform: scale(0.98);
+  box-shadow: 0 0 10px rgba(255, 153, 0, 0.7);
+}
+
+#result {
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+.correct {
+  color: #00ff00;
+}
+
+.incorrect {
+  color: #ff0000;
+}
+
+.back-btn {
+  margin-top: 30px;
+}
+
+.back-btn a {
+  background: #ffcc00;
+  color: #1c1c1c;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #ffcc00;
+  transition: 0.3s;
+}
+
+.back-btn a:hover {
+  background: #ff9900;
+  box-shadow: 0 0 15px #ff9900;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #1f1f1f;
+  color: #ffcc00;
+  font-size: 14px;
+  box-shadow: 0px -4px 6px rgba(255, 204, 0, 0.5);
+  border-radius: 20px 20px 0 0;
+} 
