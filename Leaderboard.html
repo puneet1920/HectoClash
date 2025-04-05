@@ -170,31 +170,8 @@
           <th>Country</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Player1</td>
-          <td>1500</td>
-          <td>IIT Delhi</td>
-          <td>Delhi</td>
-          <td>India</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Player2</td>
-          <td>1450</td>
-          <td>IIT Bombay</td>
-          <td>Maharashtra</td>
-          <td>India</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Player3</td>
-          <td>1400</td>
-          <td>MIT</td>
-          <td>Massachusetts</td>
-          <td>USA</td>
-        </tr>
+      <tbody id="leaderboardBody">
+        <!-- Dynamic content will be inserted here -->
       </tbody>
     </table>
   </div>
@@ -202,21 +179,66 @@
   <footer>
     &copy; 2025 HectoClash. All rights reserved.
   </footer>
+
   <script>
+    function isValidUser(user) {
+      return user && user.name && user.games !== undefined && user.wins !== undefined;
+    }
+
+    function loadLeaderboard() {
+      const tableBody = document.getElementById("leaderboardBody");
+      const users = [];
+
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key === "currentUser") continue;
+
+        try {
+          const user = JSON.parse(localStorage.getItem(key));
+          if (isValidUser(user)) {
+            let score = (user.wins || 0) * 100 + (user.streak || 0);
+            users.push({
+              name: user.name,
+              score: score,
+              institute: user.institute || "-",
+              state: user.state || "-",
+              country: user.country || "-"
+            });
+          }
+        } catch (e) {
+          // Ignore non-JSON or invalid entries
+        }
+      }
+
+      users.sort((a, b) => b.score - a.score);
+
+      users.forEach((user, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${index + 1}</td>
+          <td>${user.name}</td>
+          <td>${user.score}</td>
+          <td>${user.institute}</td>
+          <td>${user.state}</td>
+          <td>${user.country}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
     function applyFilter() {
       let instituteInput = document.getElementById("instituteFilter").value.toLowerCase();
       let stateInput = document.getElementById("stateFilter").value.toLowerCase();
-      let table = document.querySelector("table tbody");
-      let rows = table.getElementsByTagName("tr");
+      let rows = document.querySelector("#leaderboardBody").getElementsByTagName("tr");
 
       for (let i = 0; i < rows.length; i++) {
         let instituteCell = rows[i].getElementsByTagName("td")[3];
         let stateCell = rows[i].getElementsByTagName("td")[4];
-        
+
         if (instituteCell && stateCell) {
           let instituteText = instituteCell.textContent.toLowerCase();
           let stateText = stateCell.textContent.toLowerCase();
-          
+
           if (instituteText.includes(instituteInput) && stateText.includes(stateInput)) {
             rows[i].style.display = "";
           } else {
@@ -225,6 +247,8 @@
         }
       }
     }
+
+    window.onload = loadLeaderboard;
   </script>
 </body>
 </html>
