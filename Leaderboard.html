@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leaderboard - HectoClash</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+    html, body {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #121212;
+      color: #ddd;
+    }
+    header {
+      background: #1f1f1f;
+      color: #ffcc00;
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      text-transform: uppercase;
+      box-shadow: 0px 4px 8px rgba(255, 204, 0, 0.5);
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      padding: 12px;
+      box-shadow: 0px 4px 6px rgba(255, 204, 0, 0.3);
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
+      color: #ffcc00;
+      text-decoration: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      background: rgba(255, 204, 0, 0.3);
+      border-radius: 8px;
+    }
+    .profile-button {
+      background: #ffcc00;
+      color: #1c1c1c;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 12px #ffcc00;
+      transition: 0.3s ease;
+    }
+    .profile-button:hover {
+      background: #ff9900;
+      box-shadow: 0 0 18px #ff9900;
+    }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px;
+      background: #1c1c1c;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(255, 204, 0, 0.3);
+      margin-top: 20px;
+      flex: 1;
+    }
+    h2 {
+      color: #ffcc00;
+      border-bottom: 2px solid #ffcc00;
+      padding-bottom: 5px;
+    }
+    .filter-container {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .filter-container label {
+      font-weight: bold;
+      color: #ffcc00;
+    }
+    .filter-container input {
+      width: 200px;
+      padding: 8px;
+      border: 2px solid #ffcc00;
+      border-radius: 5px;
+      background: #2a2a2a;
+      color: #ddd;
+      font-size: 14px;
+      outline: none;
+    }
+    .filter-container input:focus {
+      border-color: #ff9900;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    table, th, td {
+      border: 1px solid #ffcc00;
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background: #ffcc00;
+      color: #1c1c1c;
+      font-weight: bold;
+    }
+    tr:nth-child(even) {
+      background: #2a2a2a;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #1f1f1f;
+      color: #ffcc00;
+      border-radius: 20px 20px 0 0;
+      font-size: 14px;
+      box-shadow: 0px -4px 6px rgba(255, 204, 0, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <header>Leaderboard - HectoClash</header>
+
+  <nav>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="gamemode.html">Game Modes</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="game.html">Play Now</a>
+    </div>
+    <button class="profile-button" onclick="window.location.href='profile.html'">Profile</button>
+  </nav>
+
+  <div class="container">
+    <h2>Top Players</h2>
+    <div class="filter-container">
+      <label for="instituteFilter">Institute:</label>
+      <input type="text" id="instituteFilter" onkeyup="applyFilter()" placeholder="Filter by institute">
+      <label for="stateFilter">State:</label>
+      <input type="text" id="stateFilter" onkeyup="applyFilter()" placeholder="Filter by state">
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Player</th>
+          <th>Score</th>
+          <th>Institute</th>
+          <th>State</th>
+          <th>Country</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Player1</td>
+          <td>1500</td>
+          <td>IIT Delhi</td>
+          <td>Delhi</td>
+          <td>India</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Player2</td>
+          <td>1450</td>
+          <td>IIT Bombay</td>
+          <td>Maharashtra</td>
+          <td>India</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Player3</td>
+          <td>1400</td>
+          <td>MIT</td>
+          <td>Massachusetts</td>
+          <td>USA</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer>
+    &copy; 2025 HectoClash. All rights reserved.
+  </footer>
+  <script>
+    function applyFilter() {
+      let instituteInput = document.getElementById("instituteFilter").value.toLowerCase();
+      let stateInput = document.getElementById("stateFilter").value.toLowerCase();
+      let table = document.querySelector("table tbody");
+      let rows = table.getElementsByTagName("tr");
+
+      for (let i = 0; i < rows.length; i++) {
+        let instituteCell = rows[i].getElementsByTagName("td")[3];
+        let stateCell = rows[i].getElementsByTagName("td")[4];
+        
+        if (instituteCell && stateCell) {
+          let instituteText = instituteCell.textContent.toLowerCase();
+          let stateText = stateCell.textContent.toLowerCase();
+          
+          if (instituteText.includes(instituteInput) && stateText.includes(stateInput)) {
+            rows[i].style.display = "";
+          } else {
+            rows[i].style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>
